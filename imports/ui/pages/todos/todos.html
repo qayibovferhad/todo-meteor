@@ -1,0 +1,32 @@
+<template name="todos">
+  <div class="container">
+    <!-- ADD TODO FORM -->
+    <form action="" id="addTodo">
+      <h1>Add Todo</h1>
+      <input type="text" placeholder="Write todo.." name="title" id="title" />
+      <button class="mt-3" type="submit" id="addTodo">Add</button>
+    </form>
+    <!-- EDIT FORM -->
+    <form action="" class="d-none" id="editTodo">
+      {{#with getClickedTodo}}
+      <input
+        type="text"
+        placeholder="Edit your todo"
+        name="editTitle"
+        id="editTitle"
+        value="{{title}}"
+      />
+      <button class="mt-3" type="submit" id="addTodo">Add</button>
+      {{/with}}
+    </form>
+    <!-- TODO LIST -->
+    <h1 class="mt-5">TodoList</h1>
+    <ul style="list-style: none">
+      {{#each getTodos}}
+      <li class="h3">{{title}}</li>
+      <button class="btn btn-success editButton">Edit</button>
+      <button class="btn btn-danger removeTodo">Remove</button>
+      {{/each}}
+    </ul>
+  </div>
+</template>
